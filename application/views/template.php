@@ -22,11 +22,17 @@
   <link href="<?=base_url('assets/')?>vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
   
   <script src="<?=base_url('assets/')?>vendor/jquery/jquery.min.js"></script>
-  
+
 
 </head>
 
 <body id="page-top">
+
+<?php 
+$hal    = $this->uri->segment(1);
+$aktif  = 'active';
+?>
+
 
   <!-- Page Wrapper -->
   <div id="wrapper">
@@ -46,7 +52,7 @@
       <hr class="sidebar-divider my-0">
 
       <!-- Nav Item - Dashboard -->
-      <li class="nav-item active">
+      <li class="nav-item <?=($hal=='dashboard')?$aktif:''; ?>">
         <a class="nav-link" href="<?=base_url('dashboard')?>">
           <i class="fas fa-fw fa-tachometer-alt"></i>
           <span>Dashboard</span></a>
@@ -54,17 +60,24 @@
 
 
       <!-- Nav Item - Charts -->
-      <li class="nav-item">
+      <li class="nav-item <?=($hal=='guide')?$aktif:''; ?>">
         <a class="nav-link" href="<?=base_url('guide')?>">
           <i class="fas fa-fw fa-chart-area"></i>
           <span>Guide</span></a>
       </li>
 
       <!-- Nav Item - Tables -->
-      <li class="nav-item">
+      <li class="nav-item <?=($hal=='destination')?$aktif:''; ?>">
         <a class="nav-link" href="<?=base_url('destination')?>">
           <i class="fas fa-fw fa-table"></i>
           <span>Destination</span></a>
+      </li>
+
+      <!-- Nav Item - Tables -->
+      <li class="nav-item <?=($hal=='paket')?$aktif:''; ?>">
+        <a class="nav-link" href="<?=base_url('paket')?>">
+          <i class="fas fa-fw fa-table"></i>
+          <span>Paket Wisata</span></a>
       </li>
 
       <!-- Divider -->
@@ -293,7 +306,7 @@
         <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
         <div class="modal-footer">
           <button class="btn btn-secondary btn-sm" type="button" data-dismiss="modal">Cancel</button>
-          <a class="btn btn-danger btn-sm" href="#">Logout</a>
+          <a class="btn btn-danger btn-sm" href="<?=base_url('Logout') ?>">Logout</a>
         </div>
       </div>
     </div>

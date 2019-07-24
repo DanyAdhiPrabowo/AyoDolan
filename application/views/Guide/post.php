@@ -11,7 +11,7 @@
               <div class="text-center">
                 <h1 class="h4 text-gray-900 mb-4 font-weight-bold">Input Data <?=$section ?></h1>
               </div>
-              <form class="user" method="POST" action="<?=base_url('guide/save')?>">
+              <form class="user" method="POST" enctype="multipart/form-data" action="<?=base_url('guide/save')?>">
                 <div class="form-group mb-3">
                   <label class="text-dark font-weight-bold">NIK</label>
                   <input type="text" class="form-control" placeholder="NIK..." name="nik" onkeypress="return inputAngka(event)" value="<?=set_value('nik') ?>">
@@ -51,6 +51,10 @@
                   <label class="text-dark font-weight-bold">No HP</label>
                     <input type="text" class="form-control" placeholder="08xxxxxxx.." name="hp" onkeypress="return inputAngka(event)" value="<?=set_value('hp') ?>">
                      <?=form_error('hp',"<small class='text-danger'>",'</small>') ?> 
+                </div>
+                <div class="form-group mb-3">
+                  <label class="text-dark font-weight-bold">Foto</label>
+                  <input type="file" class="form-control-file" name="foto" >
                 </div>
                 <hr>
                 <div class="d-flex">

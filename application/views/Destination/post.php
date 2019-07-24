@@ -11,29 +11,25 @@
               <div class="text-center">
                 <h1 class="h4 text-gray-900 mb-4 font-weight-bold">Input Data <?=$section ?></h1>
               </div>
-              <form class="user" method="POST" action="<?=base_url('destination/save')?>">
+              <form class="user" method="POST" enctype="multipart/form-data" action="<?=base_url('destination/save')?>">
                 <div class="form-group mb-3">
                   <label class="text-dark font-weight-bold">Destination</label>
-                  <input type="text" class="form-control" placeholder="Destination..." name="destination" value="<?=set_value('destination') ?>">
+                  <input type="text" class="form-control" placeholder="Prambanan..." name="destination" value="<?=set_value('destination') ?>">
                   <?=form_error('destination',"<small class='text-danger'>",'</small>') ?>
                 </div>
-                <div class="form-group row pb-3">
-                  <div class="col-sm-6 ">
+                <div class="form-group pb-3">
                     <label class="text-dark font-weight-bold">Price</label>
                     <input type="text" class="form-control" placeholder="Price.." name="price" onkeypress="return inputAngka(event)" value="<?=set_value('price') ?>">
                      <?=form_error('price',"<small class='text-danger'>",'</small>') ?> 
-                  </div>
-                  <div class="col-sm-6">
-                    <label class="text-dark font-weight-bold">Category</label>
-                    <select class="form-control text-dark" name="category">
-                      <option value="0" <?=set_select('category','0') ?> >Non Paket</option>
-                      <option value="1" <?=set_select('category','1') ?> >Paket</option>
-                    </select>
-                  </div>
+                </div>
+                
+                <div class="form-group pb-3">
+                    <label class="text-dark font-weight-bold">Foto </label>
+                    <input type="file" class="form-control-file" name="foto" >
                 </div>
                 <div class="form-group mb-3">
                   <label class="text-dark font-weight-bold">Description</label>
-                  <textarea type="text" class="form-control" placeholder="Description..." name="description" ><?=set_value('description')?></textarea>
+                  <textarea type="text" class="form-control" placeholder="Description..." name="description" rows="5"><?=set_value('description')?></textarea>
                   <?=form_error('description',"<small class='text-danger'>",'</small>') ?>
                 </div>
                 <hr>

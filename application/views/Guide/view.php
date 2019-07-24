@@ -26,7 +26,7 @@
           <tbody>
           	<?php 
           		foreach($show as $s){ 
-              $id = str_replace(['=','+','/'], ['-','_','~'], $this->encrypt->encode($s->id_guide));
+              $id = str_replace(['=','+','/'], ['-','_','~'], $this->encryption->encrypt($s->id_guide));
 
           	 ?>
             

@@ -20,22 +20,15 @@
                   <?=form_error('destination',"<small class='text-danger'>",'</small>') ?>
                 </div>
                 <div class="form-group row pb-3">
-                  <div class="col-sm-6 ">
+                  <div class="col-sm-12 ">
                     <label class="text-dark font-weight-bold">Price</label>
                     <input type="text" class="form-control" placeholder="Price.." name="price" onkeypress="return inputAngka(event)" value="<?=set_value('price', $s->price) ?>">
                      <?=form_error('price',"<small class='text-danger'>",'</small>') ?> 
                   </div>
-                  <div class="col-sm-6">
-                    <label class="text-dark font-weight-bold">Category</label>
-                    <select class="form-control text-dark" name="category">
-                      <option value="0" <?=($s->category=='0')?'selected':''?> <?=set_select('category','0')?> >Non Paket</option>
-                      <option value="1" <?=($s->category=='1')?'selected':''?> <?=set_select('category','1') ?> >Paket</option>
-                    </select>
-                  </div>
                 </div>
                 <div class="form-group mb-3">
                   <label class="text-dark font-weight-bold">Description</label>
-                  <textarea type="text" class="form-control" placeholder="Description..." name="description" ><?=set_value('description', $s->description)?></textarea>
+                  <textarea type="text" class="form-control" placeholder="Description..." name="description" rows="5"><?=set_value('description', $s->description)?></textarea>
                   <?=form_error('description',"<small class='text-danger'>",'</small>') ?>
                 </div>
                 <hr>

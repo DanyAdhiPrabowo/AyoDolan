@@ -1,25 +1,25 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
-
 class Welcome extends CI_Controller {
-
-	/**
-	 * Index Page for this controller.
-	 *
-	 * Maps to the following URL
-	 * 		http://example.com/index.php/welcome
-	 *	- or -
-	 * 		http://example.com/index.php/welcome/index
-	 *	- or -
-	 * Since this controller is set as the default controller in
-	 * config/routes.php, it's displayed at http://example.com/
-	 *
-	 * So any other public methods not prefixed with an underscore will
-	 * map to /index.php/welcome/<method_name>
-	 * @see https://codeigniter.com/user_guide/general/urls.html
-	 */
+	public function __construct()
+	{
+		parent::__construct();
+		// load Cloudinary PHP API library normally using lowercase "dummy" filename
+		$this->load->library('cloudinarylib');
+		// $this->load->helper('html');
+	}
 	public function index()
 	{
-		$this->load->view('welcome_message');
+		// use Cloudinary PHP API library to load image from Cloudinary
+		$data['image'] = cl_image_tag("m71scunayv4jbasd9uiq", array( "alt" => "Sample Image", "width" => 400, "crop" => "pad" ));
+        /* The rest of the Cloudinary library is available using it's namespace "\Cloudinary\"
+        To see it in action, uncomment code line below and replace "url_to_image" with an image url
+        and when the welcome page loads it will upload to your Cloudinary account and return a response object
+        in the $data['imageupload'] array.
+        -- See Cloudinary PHP API docs for additional examples.
+        */
+        // $data['imageupload'] = \Cloudinary\Uploader::upload("url_to_image");
+		$this->load->view('welcome_message',$data);
+		// $this->load->view('welcome_message');
 	}
 }

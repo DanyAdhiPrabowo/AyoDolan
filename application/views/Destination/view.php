@@ -13,10 +13,10 @@
         <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
           <thead>
             <tr>
+              <th>Image</th>
               <th>Destination</th>
               <th>Price</th>
-              <th>Category</th>
-              <th width="300px">Description</th>
+              <th width="450px">Description</th>
               <th width="100px">Action</th>
 
             </tr>
@@ -24,14 +24,14 @@
           <tbody>
           	<?php 
           		foreach($show as $s){ 
-              $id = str_replace(['=','+','/'], ['-','_','~'], $this->encrypt->encode($s->id_destination));
+              $id = str_replace(['=','+','/'], ['-','_','~'], $this->encryption->encrypt($s->id_destination));
 
           	 ?>
             
             <tr>
+              <td><img src="<?=$s->image?>" width="90px"> </td>
               <td><?=$s->destination ?></td>
               <td><?=$s->price ?></td>
-              <td><?php echo ($s->category==1 ? 'Paket' : 'Non Paket') ?></td>
               <td><?=$s->description?></td>
               <td>
               	<button href="" onclick="deleteConfirm('<?=base_url('destination/delete/'.$id) ?>')" class="btn btn-sm btn-danger" data-target="#modalDelete" data-toggle="modal">Delete</button>
